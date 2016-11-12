@@ -2,6 +2,7 @@
     flex: 10;
     margin-top: 60px;
     padding: 0 16px;
+    padding-bottom: 48px;
 }
 
 .StockView-graph {
@@ -44,13 +45,14 @@
 
 .NewsList-label {
     font-size: 20px;
-    margin: 10px 0;
+    margin: 20px 0;
+    margin-bottom: 32px;
 }
 
 .News {
     text-align: left;
     font-size: 18px;
-    margin: 16px 0;
+    margin: 24px 0;
 }
 
 .News-title {

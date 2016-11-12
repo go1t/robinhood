@@ -11,12 +11,12 @@
 }
 
 .StockDropdown .Price {
-    font-size: 24px;
+    font-size: 27px;
     letter-spacing: normal;
 }
 
 .StockDropdown .Price-small {
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: normal;
 }
 
@@ -25,7 +25,22 @@
 }
 
 .userinfo {
+    margin-left: 8px;
     flex: 1;
+    text-align: left;
+}
+
+.userinfo a {
+    text-decoration: none;
+    color: #333;
+}
+
+.userinfo a:hover {
+    text-decoration: underline;
+}
+
+.info {
+    min-width: 120px;
 }
 
 .ministock {
@@ -37,6 +52,8 @@
 .mini-ticker {
     margin: 16px;
     margin-right: 32px;
+    text-decoration: none;
+    color: #333;
 }
 
 .mini-price {

@@ -15,6 +15,8 @@ export class StockDropdown extends Component {
                   <div className="Label">BUYING POWER</div>
                   <div><Price value="9236.77" smallDollar/></div>
               </div>
+              <br/><br/><br/>
+              &nbsp;<a href="#">See more</a> &nbsp;<span className="color">></span>
           </div>
           <MiniStockSection/>
       </div>
@@ -38,7 +40,7 @@ export const MiniStockSection = () => {
 export const MiniStock = ({ticker, price, down=false}) => {
     return (
         <div className="ministock">
-            <div className="mini-ticker">{ticker}</div>
+            <a href="#" className="mini-ticker">{ticker}</a>
             <div className={"mini-price " + (down ? 'down': '')}>${price}</div>
         </div>
     );

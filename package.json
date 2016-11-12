@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "highcharts": "^5.0.2",
     "react": "^15.3.2",
     "react-click-outside": "tj/react-click-outside",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "react-highcharts": "^11.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

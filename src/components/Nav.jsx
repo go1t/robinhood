@@ -10,7 +10,6 @@ export const Nav = () => {
         <div className="nav">
             <div className="content">
                 <div className="left">
-                    <img className="logo" src={logo} alt="Robinhood logo"/>
                     <StockList/>
                 </div>
                 <StockHeader ticker="FB" description="Facebook, Inc. - Class A Common"/>
@@ -46,7 +45,7 @@ export class StockList extends Component {
         }
         return (
             <div className="stocklist-container">
-                <button className="stocklist-btn color" onClick={this.handleClick}>Stock list</button>
+                <button className="stocklist-btn color" onClick={this.handleClick}>Overview</button>
                 {dropdown}
             </div>
         );

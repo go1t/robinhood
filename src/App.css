@@ -3,6 +3,7 @@
 }
 
 .content {
+    padding-top: 75px;
     position: relative;
     max-width: 960px;
     min-width: 600px;
@@ -18,12 +19,17 @@
 }
 
 .nav {
+    position: fixed;
+    padding-top: 24px;
     width:100%;
     min-height: 60px;
     border-bottom: 1px solid #eee;
+    background: white;
+    z-index: 1;
 }
 
 .nav .content {
+    padding: 0;
     align-items: center;
     max-width: 1170px;
 }
@@ -60,10 +66,6 @@
     margin-right: 8px;
 }
 
-.info {
-    min-width: 140px;
-}
-
 .Name {
     margin-top: 36px;
     font-size: 24px;
@@ -79,6 +81,6 @@
     text-transform: uppercase;
     color: #777;
     font-size: 12px;
-    margin: 6px;
+    margin: 6px 0;
     margin-top: 16px;
 }
