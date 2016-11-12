@@ -3,7 +3,9 @@
 }
 
 .content {
-    max-width: 1024px;
+    position: relative;
+    max-width: 960px;
+    min-width: 600px;
     display: flex;
     text-align: center;
     margin: auto;
@@ -21,6 +23,36 @@
     border-bottom: 1px solid #eee;
 }
 
+.nav .content {
+    align-items: center;
+    max-width: 1170px;
+}
+
+.stocklist-container {
+    position: relative;
+    z-index: 1;
+}
+
+.stocklist-container > div {
+    height: 0;
+}
+
+.stocklist-btn {
+    margin-left: 16px;
+    outline: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.stocklist-btn:hover {
+    background-color: #fafafa;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
 .right {
     display: flex;
     align-items: center;
@@ -29,7 +61,7 @@
 }
 
 .info {
-    margin: 0 16px;
+    min-width: 140px;
 }
 
 .Name {

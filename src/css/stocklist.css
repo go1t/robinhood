@@ -1,23 +1,31 @@
-.Leftbar {
+.StockDropdown {
+    display: flex;
     flex: 2;
-    min-height: 100%;
-    border-right: 1px solid #eee;
-    padding: 16px;
+    background-color: white;
+    box-shadow: 0px 1px 5px 0px rgba(184,184,184,0.7);
+    padding: 16px 16px 32px;
+    position: absolute;
+    border-radius: 5px;
+    top: 48px;
+    left: 16px;
 }
 
-.Leftbar .Price {
+.StockDropdown .Price {
     font-size: 24px;
     letter-spacing: normal;
 }
 
-.Leftbar .Price-small {
+.StockDropdown .Price-small {
     font-size: 16px;
     letter-spacing: normal;
 }
 
 .Ministock-container {
-    margin-top: 16px;
-    padding: 24px;
+    padding-left: 20px;
+}
+
+.userinfo {
+    flex: 1;
 }
 
 .ministock {
@@ -28,6 +36,7 @@
 
 .mini-ticker {
     margin: 16px;
+    margin-right: 32px;
 }
 
 .mini-price {
@@ -49,4 +58,8 @@
 
 .down {
     background-color: #FC452A;
+}
+
+.down:hover {
+    background-color: #EC351A;
 }

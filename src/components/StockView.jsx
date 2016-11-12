@@ -3,13 +3,11 @@ import classNames from 'classnames';
 import '../css/stock-view.css';
 import { Button} from './Button';
 import { Price, PriceChange } from './Price';
-import { StockHeader } from './StockHeader';
 import { StockRangeSelector } from './StockRangeSelector';
 
 export const StockView = ({ticker, description}) => {
     return (
         <div className="StockView">
-            <StockHeader ticker="FB" description="Facebook, Inc. - Class A Common"/>
             <Price value={119.43} smallDecimals smallDollar/>
             <PriceChange change={1.85} percent={1.53}/>
             <div className="StockView-graph"/>

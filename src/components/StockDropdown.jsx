@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {Price} from './Price';
-import '../css/sidebar.css';
+import '../css/stocklist.css';
 
-export class Leftbar extends Component {
+export class StockDropdown extends Component {
   render() {
     return (
-      <div className="Leftbar">
-          <div>
+      <div className="StockDropdown">
+          <div className="userinfo">
               <div className="info">
                   <div className="Label">PORTFOLIO VALUE</div>
                   <div><Price value="3827.91" smallDollar/></div>

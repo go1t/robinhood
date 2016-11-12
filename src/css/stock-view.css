@@ -1,5 +1,6 @@
 .StockView {
     flex: 10;
+    margin-top: 60px;
     padding: 0 16px;
 }
 
@@ -38,6 +39,7 @@
     text-align: left;
     flex: 5px;
     padding: 16px;
+    font-family: 'din_lightregular';
 }
 
 .NewsList-label {
@@ -48,7 +50,6 @@
 .News {
     text-align: left;
     font-size: 18px;
-    font-family: 'din_lightregular';
     margin: 16px 0;
 }
 
