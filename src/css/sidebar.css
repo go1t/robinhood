@@ -1,0 +1,52 @@
+.Leftbar {
+    flex: 2;
+    min-height: 100%;
+    border-right: 1px solid #eee;
+    padding: 16px;
+}
+
+.Leftbar .Price {
+    font-size: 24px;
+    letter-spacing: normal;
+}
+
+.Leftbar .Price-small {
+    font-size: 16px;
+    letter-spacing: normal;
+}
+
+.Ministock-container {
+    margin-top: 16px;
+    padding: 24px;
+}
+
+.ministock {
+    font-family: 'din_lightregular';
+    display: flex;
+    justify-content: space-between;
+}
+
+.mini-ticker {
+    margin: 16px;
+}
+
+.mini-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #29CA96;
+    margin: 8px;
+    width: 72px;
+    height: 32px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mini-price:hover {
+    background-color: #1AA278;
+}
+
+.down {
+    background-color: #FC452A;
+}

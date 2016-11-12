@@ -1,0 +1,12 @@
+.btn {
+    width: 80px;
+    margin: 8px;
+    margin-top: 20px;
+    height: 40px;
+    padding-bottom: 2px;
+    color: white;
+    border-radius: 5px;
+    font-family: 'din_lightregular';
+    cursor: pointer;
+    font-size: 18px;
+}

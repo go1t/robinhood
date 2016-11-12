@@ -1,0 +1,52 @@
+.App {
+  font-family: 'dinregular';
+}
+
+.content {
+    max-width: 1024px;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+}
+
+.nav {
+    width:100%;
+    min-height: 60px;
+    border-bottom: 1px solid #eee;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+}
+
+.info {
+    margin: 0 16px;
+}
+
+.Name {
+    margin-top: 36px;
+    font-size: 24px;
+}
+
+.Username {
+    margin-top: 8px;
+    font-size: 18px;
+    margin-bottom: 32px;
+}
+
+.Label {
+    text-transform: uppercase;
+    color: #777;
+    font-size: 12px;
+    margin: 6px;
+    margin-top: 16px;
+}

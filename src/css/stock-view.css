@@ -1,0 +1,63 @@
+.StockView {
+    flex: 10;
+    padding: 0 16px;
+}
+
+.StockView-graph {
+    height: 300px;
+}
+
+.StockRangeSelector {
+    flex: 1;
+    margin-top: 10px;
+    display: flex;
+    padding: 8px;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.range-btn {
+    font-size: 16px;
+    flex: 1;
+    cursor: pointer;
+    outline: none;
+    padding: 8px;
+}
+
+.range-btn--active {
+    border-bottom: 6px solid #29CA96;
+}
+
+.NewsList {
+    text-align: left;
+    flex: 5px;
+    padding: 16px;
+}
+
+.NewsList-label {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.News {
+    text-align: left;
+    font-size: 18px;
+    font-family: 'din_lightregular';
+    margin: 16px 0;
+}
+
+.News-title {
+    color: #333;
+}
+
+.News-date {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #777;
+}
