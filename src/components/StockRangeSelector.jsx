@@ -15,29 +15,20 @@ const RangeButton = ({label, active, handleClick}) => {
     );
 };
 
-export class StockRangeSelector extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            current: '1D'
-        };
-    }
-
-    render() {
-        return (
-            <div className="StockRangeSelector">
-                {
-                    LABELS.map((label) => (
-                        <RangeButton
-                            label={label}
-                            handleClick={() => {
-                                this.setState({current: label});
-                            }}
-                            active={this.state.current == label}
-                        />
-                    ))
-                }
-            </div>
-        );
-    }
+export const StockRangeSelector = ({current, handleClick}) => {
+    return (
+        <div className="StockRangeSelector">
+            {
+                LABELS.map((label) => (
+                    <RangeButton
+                        label={label}
+                        handleClick={() => {
+                            handleClick(label);
+                        }}
+                        active={current == label}
+                    />
+                ))
+            }
+        </div>
+    );
 }

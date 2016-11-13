@@ -10,10 +10,12 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "highcharts": "^5.0.2",
+    "moment": "^2.16.0",
     "react": "^15.3.2",
     "react-click-outside": "tj/react-click-outside",
     "react-dom": "^15.3.2",
-    "react-highcharts": "^11.0.0"
+    "react-highcharts": "^11.0.0",
+    "whatwg-fetch": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
