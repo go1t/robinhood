@@ -32,16 +32,6 @@ var config = {
     }
 };
 
-const rangeToDays = {
-    '1D': 1,
-    '1W': 7,
-    '1M': 30,
-    '3M': 90,
-    '1Y': 365,
-    '5Y': 365,
-    'ALL': 365
-};
-
 export const StockView = ({
     data,
     current,
@@ -54,10 +44,14 @@ export const StockView = ({
     } else {
         config.colors[0] = '#29CA96';
     }
+    var percent;
+    if (data) {
+        percent = diff*100/data[0][1];
+    }
     return (
         <div className="StockView">
-            <Price value={119.43} smallDecimals smallDollar/>
-            <PriceChange change={1.85} percent={1.53}/>
+            {data ? <Price value={data[data.length-1][1]} smallDecimals smallDollar/> : null}
+            {data ? <PriceChange change={diff} percent={percent}/> : null}
             <ReactHighStock className="StockView-graph" config={config}/>
             <div className="menu">
                 <StockRangeSelector

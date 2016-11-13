@@ -65,30 +65,6 @@ button {
         -ms-user-select: none;
 }
 
-.color {
-    color: #29CA96;
-}
-
-.color-bg {
-    background-color: #29CA96;
-}
-
-.color-bg:hover {
-    background-color: #1AA278;
-}
-
-.negative .color {
-	color: #F45531;
-}
-
-.negative .color-bg {
-	background-color: #F45531;
-}
-
-.negative .color-bg:hover {
-	background-color: #E44521;
-}
-
 @font-face {
   font-family: 'din_blackregular';
   src: url('css/fonts/din-black-webfont.eot');

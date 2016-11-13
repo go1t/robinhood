@@ -5,6 +5,8 @@ import '../css/price.css';
 export const Price = ({value, smallDollar, smallDecimals}) => {
     var num = Math.floor(value),
         decimals = (value % 1).toFixed(2)*100;
+
+    if (decimals < 10) decimals = '0' + decimals;
     var dollarClass = classNames({'Price-small': smallDollar}),
         decimalClass = classNames({'Price-small': smallDecimals});
     return (
@@ -19,7 +21,8 @@ export const Price = ({value, smallDollar, smallDecimals}) => {
 export const PriceChange = ({change, percent}) => {
     return (
         <div className='color'>
-            {change > 0? '+' : '-'}${Math.abs(change)}&nbsp;({percent}%)
+            {change >= 0 ? '+': null}{change.toFixed(2)}&nbsp;
+            ({percent.toFixed(2)}%)
         </div>
     );
 };
