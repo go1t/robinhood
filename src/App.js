@@ -1,29 +1,78 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import { Nav } from './components/Nav';
 import { StockView } from './components/StockView';
 import {StockDropdown} from './components/StockDropdown';
 import './App.css';
 
+const FETCH_URL = process.env.PUBLIC_URL + '/fb.json';
+
+const rangeToDays = {
+    '1D': 1,
+    '1W': 7,
+    '1M': 30,
+    '3M': 90,
+    '1Y': 365,
+    '5Y': 365,
+    'ALL': 365
+};
+
 class App extends Component {
     constructor() {
         super();
         this.state = {
-            negative: false
+            data: null,
+            current: '1M'
         };
-        this.updateAppState = this.updateAppState.bind(this);
+        this.fetchData();
+        this.handleRangeSelect = this.handleRangeSelect.bind(this);
     }
 
-    updateAppState(negative) {
-        this.setState({negative: negative});
+    fetchData() {
+        fetch(FETCH_URL)
+            .then((res) => (res.json()))
+            .then((json) => {
+                this.processData(json);
+            })
+    }
+
+    processData(data) {
+        var t = 1447286400,
+            ret = [],
+            dt = 1447372800 - t;
+
+        var dates = data.Dates.map((date) => (
+            moment(date).valueOf()
+        ));
+
+        data.Elements[0].DataSeries.close.values.forEach((price, ind) => {
+            ret.push([dates[ind], price]);
+        });
+        this.setState({data: ret});
+    }
+
+    handleRangeSelect(selected) {
+        this.setState({current: selected});
     }
 
     render() {
-        var appClass = "App " + (this.state.negative ? "negative": null);
+        let dataInRange;
+        let negative = true, diff = 0;
+        if (this.state.data) {
+            dataInRange = this.state.data.slice(0-rangeToDays[this.state.current]);
+            diff = dataInRange[dataInRange.length-1][1] - dataInRange[0][1];
+        }
+        var appClass = "App " + (diff < 0 ? "negative": null);
         return (
           <div className={appClass}>
             <Nav/>
             <div className="content">
-                <StockView updateAppState={this.updateAppState}/>
+                <StockView
+                    data={dataInRange}
+                    current={this.state.current}
+                    handleRangeSelect={this.handleRangeSelect}
+                    diff={diff}
+                />
             </div>
           </div>
         );

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import moment from 'moment';
 import ReactHighStock from 'react-highcharts/ReactHighstock';
 import classNames from 'classnames';
 import '../css/stock-view.css';
@@ -7,8 +6,6 @@ import { Button} from './Button';
 import { Price, PriceChange } from './Price';
 import { StockRangeSelector } from './StockRangeSelector';
 import 'whatwg-fetch';
-
-const FETCH_URL = process.env.PUBLIC_URL + '/fb.json';
 
 var config = {
     colors: ['#29CA96'],
@@ -45,76 +42,36 @@ const rangeToDays = {
     'ALL': 365
 };
 
-export class StockView extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: null,
-            current: '1M'
-        };
-        this.fetchData();
-        this.handleRangeSelect = this.handleRangeSelect.bind(this);
+export const StockView = ({
+    data,
+    current,
+    handleRangeSelect,
+    diff,
+}) => {
+    config.series[0].data = data;
+    if (diff < 0) {
+        config.colors[0] = "#f45531";
+    } else {
+        config.colors[0] = '#29CA96';
     }
-
-    fetchData() {
-        fetch(FETCH_URL)
-            .then((res) => (res.json()))
-            .then((json) => {
-                this.processData(json);
-            })
-    }
-
-    processData(data) {
-        var t = 1447286400,
-            ret = [],
-            dt = 1447372800 - t;
-
-        var dates = data.Dates.map((date) => (
-            moment(date).valueOf()
-        ));
-
-        data.Elements[0].DataSeries.close.values.forEach((price, ind) => {
-            ret.push([dates[ind], price]);
-        });
-        this.setState({data: ret});
-    }
-
-    handleRangeSelect(selected) {
-        this.setState({current: selected});
-    }
-
-    render() {
-        var parentClass = "StockView ";
-        if (this.state.data) {
-            const dataInRange = this.state.data.slice(0-rangeToDays[this.state.current]);
-            config.series[0].data = dataInRange;
-            console.log(dataInRange[0][1], dataInRange[dataInRange.length-1][1]);
-            if (dataInRange[0][1] > dataInRange[dataInRange.length-1][1]) {
-                parentClass += "negative";
-                config.colors[0] = "#f45531";
-            } else {
-                config.colors[0] = '#29CA96';
-            }
-        }
-        return (
-            <div className={parentClass}>
-                <Price value={119.43} smallDecimals smallDollar/>
-                <PriceChange change={1.85} percent={1.53}/>
-                <ReactHighStock className="StockView-graph" config={config}/>
-                <div className="menu">
-                    <StockRangeSelector
-                        current={this.state.current}
-                        handleClick={this.handleRangeSelect}
-                    />
-                    <Button text="Buy"/>
-                    <Button text="Sell"/>
-                </div>
-                <div>
-                    <StockNewsList/>
-                </div>
+    return (
+        <div className="StockView">
+            <Price value={119.43} smallDecimals smallDollar/>
+            <PriceChange change={1.85} percent={1.53}/>
+            <ReactHighStock className="StockView-graph" config={config}/>
+            <div className="menu">
+                <StockRangeSelector
+                    current={current}
+                    handleClick={handleRangeSelect}
+                />
+                <Button text="Buy"/>
+                <Button text="Sell"/>
             </div>
-        )
-    }
+            <div>
+                <StockNewsList/>
+            </div>
+        </div>
+    )
 }
 
 const FAKE_NEWS = [
