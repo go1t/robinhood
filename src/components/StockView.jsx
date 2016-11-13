@@ -84,10 +84,20 @@ export class StockView extends Component {
     }
 
     render() {
-        if (this.state.data)
-            config.series[0].data = this.state.data.slice(0-rangeToDays[this.state.current]);
+        var parentClass = "StockView ";
+        if (this.state.data) {
+            const dataInRange = this.state.data.slice(0-rangeToDays[this.state.current]);
+            config.series[0].data = dataInRange;
+            console.log(dataInRange[0][1], dataInRange[dataInRange.length-1][1]);
+            if (dataInRange[0][1] > dataInRange[dataInRange.length-1][1]) {
+                parentClass += "negative";
+                config.colors[0] = "#f45531";
+            } else {
+                config.colors[0] = '#29CA96';
+            }
+        }
         return (
-            <div className="StockView">
+            <div className={parentClass}>
                 <Price value={119.43} smallDecimals smallDollar/>
                 <PriceChange change={1.85} percent={1.53}/>
                 <ReactHighStock className="StockView-graph" config={config}/>

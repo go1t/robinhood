@@ -5,15 +5,28 @@ import {StockDropdown} from './components/StockDropdown';
 import './App.css';
 
 class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            negative: false
+        };
+        this.updateAppState = this.updateAppState.bind(this);
+    }
+
+    updateAppState(negative) {
+        this.setState({negative: negative});
+    }
+
     render() {
-    return (
-      <div className="App">
-        <Nav/>
-        <div className="content">
-            <StockView/>
-        </div>
-      </div>
-    );
+        var appClass = "App " + (this.state.negative ? "negative": null);
+        return (
+          <div className={appClass}>
+            <Nav/>
+            <div className="content">
+                <StockView updateAppState={this.updateAppState}/>
+            </div>
+          </div>
+        );
     }
 }
 
