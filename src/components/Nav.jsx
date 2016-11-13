@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../Robinhood-icon.jpeg';
+import { Button} from './Button';
 import {StockDropdown} from './StockDropdown';
 import { StockHeader } from './StockHeader';
 import ClickOutside from 'react-click-outside';
@@ -14,7 +15,8 @@ export const Nav = () => {
                 </div>
                 <StockHeader ticker="FB" description="Facebook, Inc. - Class A Common"/>
                 <div className="right">
-                    Saranyu Phusit
+                    <Button text="Buy"/>
+                    <Button text="Sell"/>
                 </div>
             </div>
         </div>

@@ -29,7 +29,7 @@
 .content {
     padding-top: 75px;
     position: relative;
-    max-width: 960px;
+    max-width: 1024px;
     min-width: 600px;
     display: flex;
     text-align: center;
@@ -55,7 +55,6 @@
 .nav .content {
     padding: 0;
     align-items: center;
-    max-width: 1170px;
 }
 
 .stocklist-container {
