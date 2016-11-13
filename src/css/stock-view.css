@@ -1,10 +1,24 @@
 .StockView {
-    flex: 10;
+    flex: 1;
+    margin: auto;
     margin-top: 60px;
-    padding: 0 16px;
+    padding: 0 24px;
     padding-bottom: 48px;
+    min-width: 800px;
 }
 
+@media (max-width: 1210px) {
+    .StockView {
+        min-width: auto;
+        width: 800px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .Leftbar, .Rightbar {
+        display: none;
+    }
+}
 .StockView-graph {
     height: 300px;
 }

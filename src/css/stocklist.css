@@ -39,10 +39,6 @@
     text-decoration: underline;
 }
 
-.info {
-    min-width: 120px;
-}
-
 .ministock {
     font-family: 'din_lightregular';
     display: flex;
@@ -50,7 +46,7 @@
 }
 
 .mini-ticker {
-    margin: 16px;
+    margin: 16px 0;
     margin-right: 32px;
     text-decoration: none;
     color: #333;
@@ -63,8 +59,8 @@
     color: white;
     background-color: #29CA96;
     margin: 8px;
-    width: 72px;
-    height: 32px;
+    width: 75px;
+    height: 35px;
     border-radius: 5px;
     cursor: pointer;
 }

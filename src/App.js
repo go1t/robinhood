@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { Nav } from './components/Nav';
+import { Leftbar } from './components/Sidebar';
 import { StockView } from './components/StockView';
-import {StockDropdown} from './components/StockDropdown';
 import './App.css';
 
 const FETCH_URL = process.env.PUBLIC_URL + '/fb.json';
@@ -22,7 +22,7 @@ class App extends Component {
         super();
         this.state = {
             data: null,
-            current: '1M'
+            current: '1Y'
         };
         this.fetchData();
         this.handleRangeSelect = this.handleRangeSelect.bind(this);
@@ -62,11 +62,12 @@ class App extends Component {
             dataInRange = this.state.data.slice(0-rangeToDays[this.state.current]);
             diff = dataInRange[dataInRange.length-1][1] - dataInRange[0][1];
         }
-        var appClass = "App " + (diff < 0 ? "negative": null);
+        var appClass = "App" + (diff < 0 ? " negative": '');
         return (
           <div className={appClass}>
-            <Nav/>
+            <Leftbar/>
             <div className="content">
+                <Nav/>
                 <StockView
                     data={dataInRange}
                     current={this.state.current}
@@ -74,6 +75,7 @@ class App extends Component {
                     diff={diff}
                 />
             </div>
+            <div className="Rightbar"/>
           </div>
         );
     }

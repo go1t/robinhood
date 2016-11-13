@@ -1,5 +1,8 @@
 .App {
   font-family: 'dinregular';
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .color {
@@ -27,33 +30,30 @@
 }
 
 .content {
-    padding-top: 75px;
+    max-height: 100%;
+    flex: 20;
+    padding: 8px;
     position: relative;
-    max-width: 1024px;
-    min-width: 600px;
     display: flex;
+    flex-direction: column;
     text-align: center;
     margin: auto;
     justify-content: space-between;
 }
 
-.logo {
-    width: 75px;
-    height: 75px;
-}
-
 .nav {
-    position: fixed;
-    padding-top: 24px;
-    width:100%;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 10;
     min-height: 60px;
-    border-bottom: 1px solid #eee;
+    /*border-bottom: 1px solid #eee;*/
     background: white;
     z-index: 1;
 }
 
 .nav .content {
-    padding: 0;
     align-items: center;
 }
 
@@ -67,8 +67,8 @@
 }
 
 .stocklist-btn {
-    margin-left: 16px;
     outline: none;
+    font-size: 18px;
     padding: 8px 16px;
     cursor: pointer;
 }
@@ -87,23 +87,4 @@
     align-items: center;
     justify-content: center;
     padding-right: 24px;
-}
-
-.Name {
-    margin-top: 36px;
-    font-size: 24px;
-}
-
-.Username {
-    margin-top: 8px;
-    font-size: 18px;
-    margin-bottom: 32px;
-}
-
-.Label {
-    text-transform: uppercase;
-    color: #777;
-    font-size: 12px;
-    margin: 6px 0;
-    margin-top: 16px;
 }

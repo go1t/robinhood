@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../Robinhood-icon.jpeg';
 import { Button} from './Button';
-import {StockDropdown} from './StockDropdown';
 import { StockHeader } from './StockHeader';
 import ClickOutside from 'react-click-outside';
 
@@ -9,15 +8,13 @@ import ClickOutside from 'react-click-outside';
 export const Nav = () => {
     return (
         <div className="nav">
-            <div className="content">
-                <div className="left">
-                    <StockList/>
-                </div>
-                <StockHeader ticker="FB" description="Facebook, Inc. - Class A Common"/>
-                <div className="right">
-                    <Button text="Buy"/>
-                    <Button text="Sell"/>
-                </div>
+            <div className="left">
+                <StockList/>
+            </div>
+            <StockHeader ticker="FB" description="Facebook, Inc. - Class A Common"/>
+            <div className="right">
+                <Button text="Buy"/>
+                <Button text="Sell"/>
             </div>
         </div>
     );
@@ -41,7 +38,7 @@ export class StockList extends Component {
         if (this.state.opening) {
             dropdown = (
                 <ClickOutside onClickOutside={this.handleClick}>
-                    <StockDropdown/>;
+
                 </ClickOutside>
             );
         }

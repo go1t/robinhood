@@ -1,0 +1,86 @@
+.Leftbar {
+    min-height: 100%;
+    border-right: 1px solid #eee;
+    max-width: 240px;
+    min-width: 240px;
+    padding: 8px 0px;
+}
+
+.Rightbar {
+    flex: 1;
+    min-height: 100%;
+}
+
+.Leftbar .Price {
+    font-size: 24px;
+    letter-spacing: normal;
+}
+
+.Leftbar .Price-small {
+    font-size: 16px;
+    letter-spacing: normal;
+}
+
+.sidebar-info {
+    padding: 24px;
+}
+
+.sidebar-ministock {
+    padding: 8px 16px 12px 12px;
+    font-size: 18px;
+}
+
+hr {
+    margin: 0 -8px;
+    border: none;
+    border: 1px solid #f6f6f6;
+}
+
+.logo {
+    margin-left: 12px;
+    width: 70px;
+    height: 70px;
+}
+
+.Name {
+    font-size: 20px;
+}
+
+.Username {
+    margin-top: 4px;
+    font-size: 20px;
+    font-family: 'din_lightregular';
+}
+
+.Leftbar .Price {
+    margin-top: 12px;
+    font-size: 32px;
+    letter-spacing: normal;
+}
+
+.Leftbar .Price-small {
+    font-size: 24px;
+    letter-spacing: normal;
+}
+
+
+.Label {
+    text-transform: uppercase;
+    color: #777;
+    font-size: 14px;
+    margin: 6px 0;
+    margin-top: 16px;
+}
+
+.portfolioInfo {
+    margin: 48px 0;
+}
+
+.info {
+    min-width: 120px;
+    margin-bottom: 32px;
+}
+
+.down {
+    background-color: #FC452A;
+}
