@@ -117,8 +117,12 @@ export class StockView extends Component {
                         handleClick={handleRangeSelect}
                     />
                 </div>
-                <div>
+                <div className="bottom-section">
                     <StockNewsList/>
+                    <div className="About">
+                        <div className="About-label">About</div>
+                        <p>Facebook, Inc. is a social networking company, which allows people to communicate with their family, friends, and coworkers. Its services include timeline, news feed, messages, lists, ticker and mobile apps. The company products include Facebook, Instagram, Messenger, Whatsapp and Oculus. Facebook was founded by Mark Elliot Zuckerberg, Dustin Moskovitz, Chris R. Hughes, Andrew McCollum and Eduardo P. Saverin on February 4, 2004 and is headquartered in Menlo Park, CA.</p>
+                    </div>
                 </div>
             </div>
         );
