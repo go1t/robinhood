@@ -9,6 +9,7 @@
     z-index: 1;
     background-color: white;
     box-shadow: 0px 1px 5px 0px rgba(184,184,184,0.7);
+    border-radius: 5px;
 }
 
 .Stats > div {

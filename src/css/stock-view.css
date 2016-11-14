@@ -17,11 +17,6 @@
     }
 }
 
-@media (max-width: 1050px) {
-    .Leftbar {
-        display: none;
-    }
-}
 .StockView-graph {
     height: 300px;
 }

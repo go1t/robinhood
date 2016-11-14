@@ -4,6 +4,7 @@
     max-width: 240px;
     min-width: 240px;
     padding: 8px 0px;
+    position: fixed;
 }
 
 .Rightbar {
@@ -22,11 +23,11 @@
 }
 
 .sidebar-info {
-    padding: 24px;
+    padding: 24px 24px 16px;
 }
 
 .sidebar-ministock {
-    padding: 8px 16px 12px 12px;
+    padding: 0px 16px 12px 12px;
     font-size: 18px;
 }
 
@@ -83,4 +84,31 @@ hr {
 
 .down {
     background-color: #FC452A;
+}
+
+.search-container {
+    display: flex;
+}
+
+.search {
+    display: inline-block;
+    flex: 1;
+    padding: 8px 0;
+    border: none;
+    outline: none;
+    font-family: 'din_lightregular';
+    font-size: 20px;
+    margin-left: 8px;
+    margin-bottom: 16px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.search:focus {
+    cursor: auto;
+}
+
+.search:not(:placeholder-shown) {
+    text-transform: uppercase;
+    font-family: 'dinregular';
 }

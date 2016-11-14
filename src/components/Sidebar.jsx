@@ -32,24 +32,58 @@ export class Leftbar extends Component {
     }
 }
 
-export const MiniStockSection = () => {
-    return (
-        <div className="Ministock-container sidebar-ministock">
-            <MiniStock ticker="AAPL" price={108.43}/>
-            <MiniStock ticker="TWTR" price={18.55}/>
-            <MiniStock ticker="TSLA" price={188.56}/>
-            <MiniStock ticker="NFLX" price={114.78} down/>
-            <MiniStock ticker="FB" price={119.02}/>
-            <MiniStock ticker="MSFT" price={59.02} down/>
-            <MiniStock ticker="BABA" price={92.99} down/>
-        </div>
-    );
+const STOCKS = [
+    {ticker: "AAPL", price: 108.43},
+    {ticker: "TWTR", price: 18.55},
+    {ticker: "TSLA", price: 188.56},
+    {ticker: "NFLX", price: 114.78, down: true},
+    {ticker: "FB", price: 119.02, down: true},
+    {ticker: "MSFT", price: 59.02}
+];
+
+export class MiniStockSection extends Component {
+    constructor() {
+        super();
+        this.state = {
+            searchterm: ''
+        };
+        this.updateSearch = this.updateSearch.bind(this);
+    }
+
+    updateSearch(event) {
+        this.setState({searchterm: event.target.value.toUpperCase()})
+    }
+
+    render() {
+        var FaSearch = require('react-icons/lib/fa/search');
+        return (
+            <div className="Ministock-container sidebar-ministock">
+                <div className="search-container">
+                    <FaSearch height={40} color="#999"/>
+                    <input value={this.state.searchterm} onChange={this.updateSearch} className="search" type="text" placeholder="Search stock"/>
+                </div>
+                {
+                    STOCKS
+                        .filter((s) => (this.state.searchterm.length == 0 || s.ticker.indexOf(this.state.searchterm) >= 0))
+                        .map((s) => {
+                            return (
+                                <MiniStock
+                                    ticker={s.ticker}
+                                    price={s.price}
+                                    down={s.down}
+                                />
+                            );
+                        })
+                }
+            </div>
+        );
+    }
 };
 
 export const MiniStock = ({ticker, price, down=false}) => {
     return (
         <div className="ministock">
-            <div className="mini-ticker">{ticker}</div>
+            <a href="#" className="mini-ticker">{ticker}</a>
             <div className={"mini-price " + (down ? 'down': '')}>${price}</div>
         </div>
     );
