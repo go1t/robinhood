@@ -1,23 +1,20 @@
 .StockHeader {
     display: flex;
     justify-content: space-between;
-
 }
 
 .StockHeader-details {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
+    padding: 8px;
+    text-align: left;
 }
 
 .StockHeader-ticker {
-    font-size: 20px;
+    font-size: 26px;
 }
 
 .StockHeader-description {
     color: #777;
-    margin: 4px;
+    margin-top: 8px;
     font-family: 'din_lightregular';
     font-size: 16px;
 }

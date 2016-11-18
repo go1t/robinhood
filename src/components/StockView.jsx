@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import ReactHighStock from 'react-highcharts/ReactHighstock';
 import classNames from 'classnames';
 import '../css/stock-view.css';
+import { Button} from './Button';
 import { Price, PriceChange } from './Price';
+import { StockHeader } from './StockHeader';
+import { StockStats } from './StockStats';
 import { StockRangeSelector } from './StockRangeSelector';
 import 'whatwg-fetch';
 
+var FaCheckCircle = require('react-icons/lib/fa/check-circle');
 
 var config = {
     colors: ['#29CA96'],
@@ -100,33 +104,79 @@ export class StockView extends Component {
         if (!this.state.rendered) {
             config = {...config};
         }
+
         return (
             <div className="StockView">
-                {data ? <Price value={this.state.hovering || data[data.length-1][1]} smallDecimals smallDollar/> : null}
-                {data ? <PriceChange change={diff} percent={percent}/> : null}
-                <ReactHighStock
-                    className="StockView-graph"
-                    isPureConfig
-                    config={config}
-                    callback={()=>{
-                        if (data) this.state.rendered = true;
-                    }}/>
-                <div className="menu">
-                    <StockRangeSelector
-                        current={current}
-                        handleClick={handleRangeSelect}
-                    />
-                </div>
-                <div className="bottom-section">
-                    <StockNewsList/>
-                    <div className="About">
-                        <div className="About-label">About</div>
-                        <p>Facebook, Inc. is a social networking company, which allows people to communicate with their family, friends, and coworkers. Its services include timeline, news feed, messages, lists, ticker and mobile apps. The company products include Facebook, Instagram, Messenger, Whatsapp and Oculus. Facebook was founded by Mark Elliot Zuckerberg, Dustin Moskovitz, Chris R. Hughes, Andrew McCollum and Eduardo P. Saverin on February 4, 2004 and is headquartered in Menlo Park, CA.</p>
+                <StockHeader ticker="FB" description="Facebook Inc - Class A Common Stock"/>
+                <StockMenu/>
+                <div className="StockView-content">
+                    <div className="StockView-left">
+                        <div className="StockView-graph">
+                            {data ? <Price value={this.state.hovering || data[data.length-1][1]} smallDecimals smallDollar/> : null}
+                            {data ? <PriceChange change={diff} percent={percent}/> : null}
+                            <ReactHighStock
+                                isPureConfig
+                                config={config}
+                                callback={()=>{
+                                    if (data) this.state.rendered = true;
+                                }}
+                            />
+                            <div className="menu">
+                                <StockRangeSelector
+                                    current={current}
+                                    handleClick={handleRangeSelect}
+                                />
+                            </div>
+                        </div>
+                        <div className="bottom-section">
+                            <StockNewsList/>
+                        </div>
+                    </div>
+                    <div className="StockView-right">
+                        <div className="StockView-info">
+                            <StockStats/>
+                            <div className="Section About">
+                                <div className="Section-label">About</div>
+                                <p>Facebook, Inc. is a social networking company, which allows people to communicate with their family, friends, and coworkers. Its services include timeline, news feed, messages, lists, ticker and mobile apps. The company products include Facebook, Instagram, Messenger, Whatsapp and Oculus. Facebook was founded by Mark Elliot Zuckerberg, Dustin Moskovitz, Chris R. Hughes, Andrew McCollum and Eduardo P. Saverin on February 4, 2004 and is headquartered in Menlo Park, CA.</p>
+                            </div>
+                            <CuratedList/>                        
+                        </div>
                     </div>
                 </div>
             </div>
         );
     }
+}
+
+var StockMenu = () => {
+    return (
+        <div className="StockMenu">
+            <div className="left">
+            <button className="active">Overview</button>
+            <button>News</button>
+            <button>Order History</button>
+            </div>
+            <div>
+            <input id="following" type="checkbox"/>
+            <label htmlFor="following" className="following" style={{float: 'right'}}/>
+            </div>
+        </div>
+    );
+}
+
+var CuratedList = () => {
+    return (
+        <div className="Section">
+            <div className="Section-label">Featured In</div>
+            <CuratedListItem/>
+        </div>
+    );
+}
+
+var CuratedListItem = () => {
+    return (
+        <div className="CuratedListItem">TECH STOCKS PLUMMETED AFTER ELECTION</div>
+    );
 }
 
 const FAKE_NEWS = [
@@ -147,7 +197,7 @@ const FAKE_NEWS = [
 const StockNewsList = () => {
     return (
         <div className="NewsList">
-            <div className="NewsList-label">News</div>
+            <div className="Section-label">News</div>
             <div>{
                 FAKE_NEWS.map((news) => (
                     <StockNews title={news.title} date={news.date}/>

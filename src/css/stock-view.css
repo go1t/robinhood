@@ -1,36 +1,73 @@
 .StockView {
     flex: 1;
     margin: auto;
-    margin-top: 60px;
-    padding: 0 24px;
+    margin-top: 36px;
     padding-bottom: 48px;
     min-width: 800px;
 }
 
-@media (max-width: 1210px) {
-    .StockView {
-        min-width: auto;
-        width: 800px;
-    }
-    .Rightbar {
-        display: none;
-    }
+.StockView-content {
+    display: flex;
+    margin-top: 16px;
+}
+
+.StockView-left {
+    flex: 1;
+}
+
+.StockView-right {
+    margin-left: 32px;
+    margin-right: 8px;
+    min-width: 300px;
+    max-width: 320px;
+}
+
+.StockMenu {
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    margin-top: 32px;
+    padding: 8px 12px 8px 8px;
+    margin-right: 12px;
+    background: #f9f9f9;
+    display: flex;
+    border-radius: 4px;
+}
+
+.StockMenu button {
+    text-decoration: none;
+    margin-right: 40px;
+    font-size: 18px;
+    padding: 8px 12px 10px;
+    color: #999;
+    display: block;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    font-family: 'din_lightregular';
+}
+
+.StockMenu button.active {
+    color: #777;
+    font-family: 'dinregular';
+}
+
+.StockView-info {
+    padding: 24px 0px 24px 0;
+    border-radius: 5px;
 }
 
 .StockView-graph {
-    height: 300px;
+    margin: 24px 0 48px;
+    padding-top: 48px;
+    box-shadow: 0px 1px 3px #ccc;
+    border-radius: 5px;
 }
 
 .StockRangeSelector {
     flex: 1;
-    margin-top: 10px;
     display: flex;
-    padding: 8px;
     justify-content: space-between;
-}
-
-.highcharts-container {
-    margin-top: 20px;
 }
 
 .menu {
@@ -65,25 +102,29 @@
     display: flex;
 }
 
-.NewsList, .About {
+.Section {
     text-align: left;
-    flex: 3;
     padding: 16px;
+    margin-bottom: 24px;
+}
+
+.StockView-info .Section {
+    padding-bottom: 0;
+}
+
+.Section-label{
     font-family: 'din_lightregular';
+    font-size: 20px;
+    margin-bottom: 16px;
+    text-align: left;
 }
 
 .About {
-    flex: 2;
+    font-family: 'din_lightregular';
 }
 
 .About p {
     line-height: 1.5;
-}
-
-.NewsList-label, .About-label {
-    font-size: 20px;
-    margin: 20px 0;
-    margin-bottom: 24px;
 }
 
 .News {
@@ -101,4 +142,53 @@
     margin-top: 8px;
     font-size: 14px;
     color: #777;
+}
+
+.CuratedListItem {
+    cursor: pointer;
+    color: white;
+    padding: 16px;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 24px;
+    font-family: 'dinbold';
+    display: flex;
+    align-items: center;
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.65)
+    ), url("http://cnafinance.com/wp-content/uploads/2015/06/Bullish-Tech-Stocks.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 180px;
+    border-radius: 6px;
+}
+
+#following {
+    visibility: hidden;
+}
+
+input:checked + label {
+    color: white;
+    background: #29CA96;
+}
+
+.negative input:checked + label {
+    background: #F45531;
+}
+
+input:checked + label:before {
+    content: 'Following';
+}
+
+.following {
+    align-self: center;
+    padding: 12px 16px;
+    background: #f1f1f1;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.following::before {
+    content: 'Follow'
 }

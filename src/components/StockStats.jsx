@@ -16,26 +16,29 @@ const data = [
 
 export const StockStats = () => {
     return (
-        <div className="Stats">
-            <div className="Stats-left">
+        <div className="Section">
+            <div className="Section-label">Stats</div>
+            <div className="Stats">
+                <div className="Stats-left">
+                    {
+                        data.slice(0, 5).map(({label, value}) => (
+                            <div className='Stats-info'>
+                                <span className="Stats-label">{label}</span>
+                                <span className="Stats-value">{value}</span>
+                            </div>
+                        ))
+                    }
+                </div>
+                <div className="Stats-right">
                 {
-                    data.slice(0, 5).map(({label, value}) => (
+                    data.slice(-5).map(({label, value}) => (
                         <div className='Stats-info'>
                             <span className="Stats-label">{label}</span>
                             <span className="Stats-value">{value}</span>
                         </div>
                     ))
                 }
-            </div>
-            <div className="Stats-right">
-            {
-                data.slice(-5).map(({label, value}) => (
-                    <div className='Stats-info'>
-                        <span className="Stats-label">{label}</span>
-                        <span className="Stats-value">{value}</span>
-                    </div>
-                ))
-            }
+                </div>
             </div>
         </div>
     );

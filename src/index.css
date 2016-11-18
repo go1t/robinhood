@@ -104,7 +104,7 @@ button {
 }
 
 @font-face {
-  font-family: 'dinregular';
+  font-family: 'dinmedium';
   src: url('css/fonts/din-medium-webfont.eot');
   src: url('css/fonts/din-medium-webfont.eot?#iefix') format('embedded-opentype'),
        url('css/fonts/din-medium-webfont.woff') format('woff'),

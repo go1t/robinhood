@@ -3,7 +3,7 @@
     border-right: 1px solid #eee;
     max-width: 240px;
     min-width: 240px;
-    padding: 8px 0px;
+    padding: 8px 8px;
     position: fixed;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .sidebar-ministock {
-    padding: 0px 16px 12px 12px;
+    padding: 0px 12px 12px 12px;
     font-size: 18px;
 }
 
@@ -38,9 +38,9 @@ hr {
 }
 
 .logo {
-    margin-left: 12px;
-    width: 70px;
-    height: 70px;
+    margin: -12px 0 -12px -12px;
+    width: 60px;
+    height: 60px;
 }
 
 .Name {
@@ -84,31 +84,4 @@ hr {
 
 .down {
     background-color: #FC452A;
-}
-
-.search-container {
-    display: flex;
-}
-
-.search {
-    display: inline-block;
-    flex: 1;
-    padding: 8px 0;
-    border: none;
-    outline: none;
-    font-family: 'din_lightregular';
-    font-size: 20px;
-    margin-left: 8px;
-    margin-bottom: 16px;
-    width: 150px;
-    cursor: pointer;
-}
-
-.search:focus {
-    cursor: auto;
-}
-
-.search:not(:placeholder-shown) {
-    text-transform: uppercase;
-    font-family: 'dinregular';
 }

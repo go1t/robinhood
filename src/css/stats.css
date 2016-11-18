@@ -1,27 +1,24 @@
 .Stats {
-    position: absolute;
     display: flex;
-    top: 42px;
-    left: 8px;
     text-align: left;
-    padding: 4px 8px;
-    width: 350px;
     z-index: 1;
     background-color: white;
-    box-shadow: 0px 1px 5px 0px rgba(184,184,184,0.7);
     border-radius: 5px;
 }
 
 .Stats > div {
     flex: 1;
-    margin: 8px;
+}
+
+.Stats-left + .Stats-right {
+    margin-left: 24px;
 }
 
 .Stats-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 8px;
+    padding: 12px 0;
 }
 
 .Stats-info + .Stats-info {

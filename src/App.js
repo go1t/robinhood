@@ -65,9 +65,8 @@ class App extends Component {
         var appClass = "App" + (diff < 0 ? " negative": '');
         return (
           <div className={appClass}>
-            <Leftbar/>
+            <Nav/>
             <div className="content">
-                <Nav/>
                 <StockView
                     data={dataInRange}
                     current={this.state.current}
@@ -75,7 +74,6 @@ class App extends Component {
                     diff={diff}
                 />
             </div>
-            <div className="Rightbar"/>
           </div>
         );
     }
